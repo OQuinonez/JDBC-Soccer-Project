@@ -10,10 +10,12 @@ public class SPlayerRepositroy {
         try {
             Connection con = Connect.LoadDB();
             // SQL SELCECT STATEMENT BELOW!!!!!
-            PreparedStatement statement = con.prepareStatement("SELECT FName, LName FROM Players");
+            PreparedStatement statement = con.prepareStatement("SELECT FName" +
+                    "LName" +
+                    "TeamName WHERE TeamID = TeamID IN Teams");
             ResultSet resultSet = statement.executeQuery();
             resultSet.next();
-            return new SoccerPlayer(resultSet.getString("Bob"), resultSet.getString("Larry"));
+            return new SoccerPlayer(resultSet.getString("FName"), resultSet.getString("LName"), resultSet.getString("team"));
         } catch (SQLException exception){
             System.out.println(exception.getMessage());
             return null;
