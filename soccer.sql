@@ -8,7 +8,7 @@ CREATE TABLE Players (
     PlayerID SERIAL PRIMARY KEY,
     FName text,
     LName text,
-    team Integer REFERENCES Teams(TeamID)
+    TeamID Integer REFERENCES Teams(TeamID)
 );
 
 CREATE TABLE PlayerInfo(
@@ -34,9 +34,9 @@ CREATE TABLE TeamStatistics(
     Losses int
 );
 
-INSERT INTO Teams(TeamName, NumOfPlayers) VALUES ('Aguilas', 35);
+INSERT INTO Teams(TeamName, NumOfPlayers) VALUES ('Aguilas', 1);
 
-INSERT INTO Players(FName, LName, team) VALUES ('Oz', 'Qui', 1);
+INSERT INTO Players(FName, LName, TeamID) VALUES ('Oz', 'Qui', 1);
 
 INSERT INTO PlayerInfo(PlayerID, Pos, Age, Nationality) VALUES (1, 'Def', 18, 'Mexico');
 
